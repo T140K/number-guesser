@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="game-area">
+        <h1>Number guessing game</h1>
+        <p>Guess the number in the textbox, we will say higher or lower</p>
+        <input id="text-box" type="text" placeholder="guess here">
+        <button id="guessBtn">Guess</button>
+        <p id="helper">Guess!</p>
+        <p id="counter">Number of guesses</p>
+    </div>
+    <script>
+        let y = Math.floor(Math.random() * 100 + 1);
+
+        let guess = document.getElementById('counter');
+        guess = 0;
+
+        let guesser = document.getElementById('helper');
+
+        document.getElementById('guessBtn').onclick = function () {
+            let x = document.getElementById('text-box').value;
+
+            counter.innerHTML = 'You guessed ' + guess + ' number of times';
+
+            if (x == y) {
+                guess++;
+                guesser.innerText = 'Good job you did it, it only took you ' + guess + ' tries';
+                counter.innerHTML = 'Good job :D'
+            }
+            else if (x > y) {
+                guess++;
+                guesser.innerText = 'You need to guess lower';
+            }
+            else if (x < y) {
+                guess++;
+                guesser.innerHTML = 'You need to guess higher';
+            }
+        }
+    </script>
+</body>
+
+</html>
